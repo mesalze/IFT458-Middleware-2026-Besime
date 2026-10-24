@@ -29,3 +29,17 @@ The Git commands I used were:
 
 ## Conclusion
 This activity helped me understand how React Native, Expo, and Git work together. I learned how to run a mobile application, test it in a browser, and manage my project using Git.
+
+## Git Terminal Output Examples
+### 1. Git Status
+
+Command: `git status`
+
+Terminal output:
+On branch main
+Your branch is up to date with 'myrepo/main'.
+
+Changes not staged for commit:
+        modified:   MobileStudent_Besime.md
+
+no changes added to commit
