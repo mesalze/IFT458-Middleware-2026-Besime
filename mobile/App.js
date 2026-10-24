@@ -3,7 +3,9 @@
 
 // Manages screen navigation and user authentication state
 import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, StatusBar, Platform } from 'react-native';
+import { View, ActivityIndicator, Text, TouchableOpacity, StyleSheet, StatusBar, Platform } from 'react-native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 // Import all screen components
 import HomeScreen from './screens/HomeScreen';
@@ -19,10 +21,11 @@ import { getSavedUser } from './utils/api';
 
 
 
-const loggermiddleware = require('./loggerMiddleware'); //Bryce Pratt
+
 
 // Import AuthContext
 import { AuthProvider, useAuth } from './AuthContext';
+import { NavigationContainer } from '@react-navigation/native';
 
 // Fix the web viewport so the app uses the full browser width
 // Expo web by default constrains the app to a narrow mobile width
@@ -126,13 +129,13 @@ const AppNavigator = () => {
     useEffect(() => {
         const checkSavedUser = async () => {
             try {
-                loggermiddleware('Checking saved user');
+                console.log('Checking saved user');
                 const savedData = await getSavedUser();
                 if (savedData) {
                     login(savedData.user, savedData.token);
                 }
             } catch (error) {
-                loggermiddleware('Error checking saved user:', error);
+                console.error('Error checking saved user:', error);
                 setAuthError('Failed to load saved session');
             } finally {
                 setLoading(false);
@@ -180,3 +183,18 @@ export default function App() {
         </AuthProvider>
     );
 }
+
+const styles = StyleSheet.create({
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#ffffff',
+  },
+  errorText: {
+    color: 'red',
+    fontSize: 16,
+    textAlign: 'center',
+    marginBottom: 12,
+  },
+});

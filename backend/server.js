@@ -30,7 +30,7 @@ const DB = process.env.DATABASE.replace(
 );
 
 // Connect to MongoDB using mongoose
-console.log(DB); // check the database connection string
+//console.log(DB); // check the database connection string
 mongoose
   .connect(DB, {
     useNewUrlParser: true,
