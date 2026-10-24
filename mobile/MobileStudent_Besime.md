@@ -43,3 +43,41 @@ Changes not staged for commit:
         modified:   MobileStudent_Besime.md
 
 no changes added to commit
+### 2. Git Push
+
+Command: `git push myrepo main`
+
+Terminal output:
+
+5637fc7..30d0497  main -> main
+
+This confirms that my changes were successfully uploaded to my GitHub repository.
+### 3. Git Add
+
+Command: `git add MobileStudent_Besime.md`
+
+Verification command: `git status`
+
+Terminal output:
+
+Changes to be committed:
+        modified:   MobileStudent_Besime.md
+
+This confirms that my file was staged and ready to be committed.
+### 4. Git Commit
+Command: git log -1
+
+Terminal output:
+commit 30d0497
+Author: Besime Korkmaz
+Date: Sat Oct 24 16:44:43 2026 -0400
+
+    Add mobile Git workflow examples
+
+This confirms that my changes were committed successfully and uploaded to my GitHub repository.
+
+Command: `git commit -m "Add mobile Git workflow examples"`
+
+This command saved my changes to the local Git repository.
+
+I then used `git push myrepo main` to upload the commit to my GitHub repository.
